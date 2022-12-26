@@ -155,9 +155,9 @@ Order.init(
   },
 );
 
-Order.belongsTo(Cnpj, { foreignKey: 'cnpjId',  as: 'cnpj' });
-Order.belongsTo(User, { foreignKey: 'userId', as: 'user'});
-Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'provider'});
+Order.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpj' });
+Order.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'provider' });
 Order.belongsTo(Buyer, { foreignKey: 'buyerId', as: 'buyer' });
 Cnpj.hasMany(Order, { foreignKey: 'id' });
 User.hasMany(Order, { foreignKey: 'id' });

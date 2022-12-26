@@ -38,7 +38,7 @@
       "@typescript-eslint/naming-convention": [
         "error", { 
           "selector": "property",
-          "format": ["upperCase", "strictCamelCase"],
+          "format": ["UPPER_CASE", "strictCamelCase"],
           "filter": {
           "regex": "^_",
           "match": false
@@ -71,7 +71,7 @@
       "max-lines-per-function": [
         "error",
         {
-          "max": 20,
+          "max": 28,
           "skipBlankLines": true,
           "skipComments": true
         }

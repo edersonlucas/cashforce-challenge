@@ -7,7 +7,7 @@ export default class Cnpj extends Model {
   companyType!: string;
   createdAt!: Date;
   updatedAt!: Date;
-};
+}
 
 Cnpj.init(
   {
@@ -32,7 +32,7 @@ Cnpj.init(
     updatedAt: {
       type: DATE,
       allowNull: false,
-    }
+    },
   },
   {
     underscored: false,

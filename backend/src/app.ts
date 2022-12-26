@@ -8,6 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(orderRouter);
 app.use(providerRouter);
-app.use(ErrorMiddleware.error)
+app.use(ErrorMiddleware.error);
 
 export default app;

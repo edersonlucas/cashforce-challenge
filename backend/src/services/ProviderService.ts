@@ -1,5 +1,5 @@
-import Cnpj from "../database/models/Cnpj";
-import Provider from "../database/models/Provider";
+import Cnpj from '../database/models/Cnpj';
+import Provider from '../database/models/Provider';
 
 export default class ProviderService {
   private model = Provider;
@@ -10,9 +10,11 @@ export default class ProviderService {
         id,
       },
       include: [
-        { model: Cnpj, as: 'cnpj', attributes: {
-          exclude: ['id']
-        } },
+        { model: Cnpj,
+          as: 'cnpj',
+          attributes: {
+            exclude: ['id'],
+          } },
       ],
     });
     return provider;
