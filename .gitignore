@@ -2,6 +2,7 @@
 /backend/dist
 /backend/build
 /backend/.env
+/backend/.nyc_output
 
 /frontend/node_modules
 /frontend/dist
