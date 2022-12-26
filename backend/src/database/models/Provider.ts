@@ -182,5 +182,5 @@ Provider.init(
   },
 );
 
-Provider.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpjId' });
+Provider.belongsTo(Cnpj, { foreignKey: 'cnpjId'});
 Cnpj.hasMany(Provider, { foreignKey: 'id' });

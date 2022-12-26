@@ -165,5 +165,5 @@ Buyer.init(
   },
 );
 
-Buyer.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpjId' });
+Buyer.belongsTo(Cnpj, { foreignKey: 'cnpjId' });
 Cnpj.hasMany(Buyer, { foreignKey: 'id' });

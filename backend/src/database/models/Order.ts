@@ -155,10 +155,10 @@ Order.init(
   },
 );
 
-Order.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpjId' });
-Order.belongsTo(User, { foreignKey: 'userId', as: 'userId' });
-Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'providerId' });
-Order.belongsTo(Buyer, { foreignKey: 'buyerId', as: 'buyerId' });
+Order.belongsTo(Cnpj, { foreignKey: 'cnpjId',  as: 'cnpj' });
+Order.belongsTo(User, { foreignKey: 'userId', as: 'user'});
+Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'provider'});
+Order.belongsTo(Buyer, { foreignKey: 'buyerId', as: 'buyer' });
 Cnpj.hasMany(Order, { foreignKey: 'id' });
 User.hasMany(Order, { foreignKey: 'id' });
 Provider.hasMany(Order, { foreignKey: 'id' });
