@@ -13,10 +13,14 @@ export default class OrderService {
         userId,
       },
       include: [
-        { model: Provider, as: 'provider' },
-        { model: Buyer, as: 'buyer' },
-        { model: Cnpj, as: 'cnpj' },
-        { model: User, as: 'user' },
+        { model: Provider, as: 'provider', attributes: ['id', 'name'] },
+        { model: Buyer, as: 'buyer', attributes: ['id', 'name'] },
+        { model: Cnpj, as: 'cnpj', attributes: {
+          exclude: ['id']
+        } },
+        { model: User, as: 'user', attributes: {
+          exclude: ['id']
+        } },
       ],
       attributes: {
         exclude: ['cnpjId', 'userId', 'providerId', 'buyerId']
