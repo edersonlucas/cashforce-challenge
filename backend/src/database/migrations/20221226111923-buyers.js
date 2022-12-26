@@ -102,6 +102,7 @@ module.exports = {
             model: 'cnpjs',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         confirm: {
           type: Sequelize.TINYINT(1),

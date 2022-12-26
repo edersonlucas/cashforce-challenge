@@ -31,7 +31,6 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
         },
-
         emissionDate: {
           type: Sequelize.STRING,
           allowNull: true,
@@ -71,6 +70,7 @@ module.exports = {
             model: 'cnpjs',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         userId: {
           type: Sequelize.INTEGER(11),
@@ -79,6 +79,7 @@ module.exports = {
             model: 'users',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         buyerId: {
           type: Sequelize.INTEGER(11),
@@ -87,6 +88,7 @@ module.exports = {
             model: 'buyers',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         providerId: {
           type: Sequelize.INTEGER(11),
@@ -95,6 +97,7 @@ module.exports = {
             model: 'providers',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         orderStatusBuyer: {
           type: Sequelize.STRING,

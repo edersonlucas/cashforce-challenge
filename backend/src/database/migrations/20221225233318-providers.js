@@ -118,6 +118,7 @@ module.exports = {
             model: 'cnpjs',
             key: 'id',
           },
+          onDelete: 'CASCADE',
         },
         email: {
           type: Sequelize.STRING,
