@@ -5,7 +5,7 @@ export default class ProviderService {
   private model = Provider;
 
   public async getById(id: number) {
-    const provider = await this.model.findAll({
+    const provider = await this.model.findOne({
       where: {
         id,
       },
