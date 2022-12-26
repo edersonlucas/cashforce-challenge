@@ -1,0 +1,1 @@
+export const errorResponseMock = { message: 'Internal Server Error!' };
