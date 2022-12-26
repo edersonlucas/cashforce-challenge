@@ -1,3 +1,4 @@
+/* eslint max-lines-per-function: ["error", {"max": 200, "skipComments": true}]  */
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -5,7 +6,7 @@ module.exports = {
       'providers',
       {
         id: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER(11),
           allowNull: false,
           primaryKey: true,
           autoIncrement: true,
@@ -111,13 +112,12 @@ module.exports = {
           allowNull: false,
         },
         cnpjId: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER(11),
           allowNull: true,
           references: {
             model: 'cnpjs',
             key: 'id',
           },
-          onDelete: 'CASCADE',
         },
         email: {
           type: Sequelize.STRING,
@@ -127,7 +127,7 @@ module.exports = {
     );
   },
 
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('providers');
   },
 };

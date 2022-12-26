@@ -1,3 +1,4 @@
+/* eslint max-lines-per-function: ["error", {"max": 200, "skipComments": true}]  */
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -5,7 +6,7 @@ module.exports = {
       'users',
       {
         id: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER(11),
           allowNull: false,
           primaryKey: true,
           autoIncrement: true,
@@ -35,7 +36,7 @@ module.exports = {
           allowNull: true,
         },
         emailChecked: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.TINYINT(1),
           allowNull: false,
         },
         createdAt: {
@@ -47,14 +48,14 @@ module.exports = {
           allowNull: false,
         },
         cashforceAdm: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.TINYINT(1),
           allowNull: false,
         },
       },
     );
   },
 
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('users');
   },
 };
