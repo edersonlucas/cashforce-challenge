@@ -37,7 +37,7 @@ Cnpj.init(
   {
     underscored: false,
     sequelize: db,
-    modelName: 'Cnpjs',
+    modelName: 'cnpjs',
     timestamps: true,
   },
 );
