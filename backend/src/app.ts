@@ -1,10 +1,12 @@
 import express from 'express';
+import cors from 'cors';
 import ErrorMiddleware from './middlewares/ErrorMiddlware';
 import orderRouter from './routes/OrderRouter';
 import providerRouter from './routes/ProviderRouter';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(orderRouter);
 app.use(providerRouter);
