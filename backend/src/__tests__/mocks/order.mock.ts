@@ -1,4 +1,4 @@
-export const findAllByUserIdMock = [
+export const findAllMock = [
   {
     "id": 1,
     "orderNfId": "1605181324132",
