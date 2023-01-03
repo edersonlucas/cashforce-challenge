@@ -18,6 +18,7 @@
       "project": ["**/tsconfig.eslint.json"]
     },
     "plugins": ["@typescript-eslint"],
+    "ignorePatterns": ["/src/__tests__", "/src/database/"],
     "rules": {
       "linebreak-style": 0,
       "no-underscore-dangle": "off",
