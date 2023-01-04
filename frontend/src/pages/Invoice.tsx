@@ -29,7 +29,11 @@ export default function Invoice () {
       headers: { Authorization: token},
     })
       .then((response) => setProvider(response.data))
-      .catch(() => logout())
+      .catch((err) => {
+        if(err.response.status === 401) {
+          logout()
+        }
+      })
   }, [providerId, navigate, logout])
 
   useEffect(() => {
@@ -42,7 +46,11 @@ export default function Invoice () {
       headers: { Authorization: token},
     })
       .then((response) => setInvoices(response.data))
-      .catch(() => logout())
+      .catch((err) => {
+        if(err.response.status === 401) {
+          logout()
+        }
+      })
   }, [navigate, logout]);
 
   return (
