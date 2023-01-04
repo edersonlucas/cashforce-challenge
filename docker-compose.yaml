@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    working_dir: /frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - ${PORT}:${PORT}
+    env_file: .env
+    platform: linux/x86_64
+    depends_on:
+      - backend
+    networks:
+      - cashforce_net
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: backend
+    working_dir: /backend
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    env_file: .env
+    platform: linux/x86_64
+    depends_on:
+      - database
+    networks:
+      - cashforce_net
+    restart: always
+
+  database:
+    image: mysql:8.0.21
+    container_name: database
+    platform: linux/x86_64
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    env_file: .env
+    restart: 'always'
+    networks:
+      - cashforce_net
+
+networks:
+  cashforce_net:
+    driver: bridge
