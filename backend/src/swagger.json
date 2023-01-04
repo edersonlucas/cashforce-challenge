@@ -1,0 +1,569 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Cashforce API Documentation",
+    "description": "Essa API tem como objetivo gerenciar consultas a notas fiscais",
+    "contact": {
+      "email": "edersonlucas@outlook.com.br"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001",
+      "description": "API"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Realizar Login",
+        "description": "Essa rota será a responsável por realizar login no sistema",
+        "tags": ["Login"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              },
+              "example": {
+                "email": "allan@cashforce.com.br"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFMTEFOIFNPVVpBIiwiZW1haWwiOiJhbGxhbkBjYXNoZm9yY2UuY29tLmJyIiwiaWF0IjoxNjcyNzcwNDc0fQ.b-ZmWgzDQh9ChOvbfJJRndl6p2k51QDm2CboLMzUNvM"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "User not found!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Email field missing!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "get": {
+        "summary": "Busca as notas fiscais",
+        "description": "Essa rota será a responsável por buscas as notas fiscais do usuário logado no sistema.",
+        "tags": ["Orders"],
+        "security": [{ "bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderData"
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "orderNfId": "1605181324132",
+                    "orderNumber": "18153",
+                    "orderPath": null,
+                    "orderFileName": null,
+                    "orderOriginalName": null,
+                    "emissionDate": "2020-10-30T11:00:00-03:00",
+                    "pdfFile": null,
+                    "emitedTo": "22843980000127",
+                    "nNf": "18153",
+                    "CTE": "",
+                    "value": "198450",
+                    "createdAt": "2020-10-30T17:54:18.000Z",
+                    "updatedAt": "2020-10-30T17:54:18.000Z",
+                    "orderStatusBuyer": "0",
+                    "orderStatusProvider": "0",
+                    "deliveryReceipt": null,
+                    "cargoPackingList": null,
+                    "deliveryCtrc": null,
+                    "provider": {
+                      "id": 1,
+                      "name": "CEDENTE 002"
+                    },
+                    "buyer": {
+                      "id": 1,
+                      "name": "SACADO 001"
+                    },
+                    "cnpj": {
+                      "cnpj": "00000000000001",
+                      "companyType": "2",
+                      "createdAt": "2020-10-29T21:20:33.000Z",
+                      "updatedAt": "2020-10-29T21:20:33.000Z"
+                    },
+                    "user": {
+                      "name": "ALLAN SOUZA",
+                      "email": "allan@cashforce.com.br",
+                      "phoneNumber": null,
+                      "mobile": null,
+                      "departament": null,
+                      "verificationCode": "",
+                      "emailChecked": 1,
+                      "createdAt": "2020-10-01T21:31:37.000Z",
+                      "updatedAt": "2020-10-01T22:41:23.000Z",
+                      "cashforceAdm": 1
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "orderNfId": "160518132413",
+                    "orderNumber": "18157",
+                    "orderPath": null,
+                    "orderFileName": null,
+                    "orderOriginalName": null,
+                    "emissionDate": "2020-11-04T15:32:35-02:00",
+                    "pdfFile": null,
+                    "emitedTo": "35705180000272",
+                    "nNf": "18157",
+                    "CTE": "",
+                    "value": "168850",
+                    "createdAt": "2020-11-10T18:33:46.000Z",
+                    "updatedAt": "2020-11-10T18:33:46.000Z",
+                    "orderStatusBuyer": "0",
+                    "orderStatusProvider": "0",
+                    "deliveryReceipt": null,
+                    "cargoPackingList": null,
+                    "deliveryCtrc": null,
+                    "provider": {
+                      "id": 1,
+                      "name": "CEDENTE 002"
+                    },
+                    "buyer": {
+                      "id": 1,
+                      "name": "SACADO 001"
+                    },
+                    "cnpj": {
+                      "cnpj": "00000000000001",
+                      "companyType": "2",
+                      "createdAt": "2020-10-29T21:20:33.000Z",
+                      "updatedAt": "2020-10-29T21:20:33.000Z"
+                    },
+                    "user": {
+                      "name": "ALLAN SOUZA",
+                      "email": "allan@cashforce.com.br",
+                      "phoneNumber": null,
+                      "mobile": null,
+                      "departament": null,
+                      "verificationCode": "",
+                      "emailChecked": 1,
+                      "createdAt": "2020-10-01T21:31:37.000Z",
+                      "updatedAt": "2020-10-01T22:41:23.000Z",
+                      "cashforceAdm": 1
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "string"
+                  }
+                },
+                "example": {
+                  "message": "Token must be a valid token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/provider/{id}": {
+      "get": {
+        "summary": "Busca o cedente",
+        "description": "Essa rota será a responsável por buscas o cedente pelo provider ID.",
+        "tags": ["Provider"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "require": true,
+            "description": "O provider ID"
+          }
+        ],
+        "security": [{ "bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProviderData"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "CEDENTE 002",
+                  "tradingName": "CEDENTE 002 LTDA",
+                  "cashforceTax": null,
+                  "responsibleName": null,
+                  "responsibleEmail": null,
+                  "responsiblePosition": null,
+                  "responsiblePhone": null,
+                  "responsibleMobile": null,
+                  "website": null,
+                  "postalCode": null,
+                  "address": null,
+                  "number": null,
+                  "complement": null,
+                  "neighborhood": null,
+                  "city": null,
+                  "state": null,
+                  "bank": null,
+                  "bankAgency": null,
+                  "account": null,
+                  "documents": null,
+                  "phoneNumber": null,
+                  "situation": null,
+                  "situationDate": null,
+                  "createdAt": "2020-10-29T21:22:21.000Z",
+                  "updatedAt": "2020-10-29T21:22:22.000Z",
+                  "cnpjId": 2,
+                  "email": null,
+                  "cnpj": {
+                    "cnpj": "00000000000002",
+                    "companyType": "1",
+                    "createdAt": "2020-10-29T21:20:33.000Z",
+                    "updatedAt": "2020-10-29T21:20:33.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "string"
+                  }
+                },
+                "example": {
+                  "message": "Token must be a valid token"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderData": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "orderNfId": {
+              "type": "string"
+            },
+            "orderNumber": {
+              "type": "string"
+            },
+            "orderPath": {
+              "type": "string"
+            },
+            "orderFileName": {
+              "type": "string"
+            },
+            "orderOriginalName": {
+              "type": "string"
+            },
+            "emissionDate": {
+              "type": "string"
+            },
+            "pdfFile": {
+              "type": "string"
+            },
+            "emitedTo": {
+              "type": "string"
+            },
+            "nNF": {
+              "type": "string"
+            },
+            "CTE": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            },
+            "orderStatusBuyer": {
+              "type": "string"
+            },
+            "orderStatusProvider": {
+              "type": "string"
+            },
+            "deliveryReceipt": {
+              "type": "string"
+            },
+            "cargoPackingList": {
+              "type": "string"
+            },
+            "deliveryCtrc": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "buyer": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "cnpj": {
+              "type": "object",
+              "properties": {
+                "cnpj": {
+                  "type": "string"
+                },
+                "companyType": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                }
+              }
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "mobile": {
+                  "type": "string"
+                },
+                "departament": {
+                  "type": "string"
+                },
+                "verificationCode": {
+                  "type": "string"
+                },
+                "emailChecked": {
+                  "type": "integer"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "string"
+                },
+                "cashforceAdm": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ProviderData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tradingName": {
+            "type": "string"
+          },
+          "cashforceTax": {
+            "type": "string"
+          },
+          "responsibleName": {
+            "type": "string"
+          },
+          "responsibleEmail": {
+            "type": "string"
+          },
+          "responsiblePosition": {
+            "type": "string"
+          },
+          "responsiblePhone": {
+            "type": "string"
+          },
+          "responsibleMobile": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "complement": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "bank": {
+            "type": "string"
+          },
+          "bankAgency": {
+            "type": "string"
+          },
+          "account": {
+            "type": "string"
+          },
+          "documents": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "situation": {
+            "type": "string"
+          },
+          "situationDate": {
+            "type": "string"
+          },
+          "createdAtr": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "cnpjId": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "cnpj": {
+            "type": "object",
+            "properties": {
+              "cnpj": {
+                "type": "string"
+              },
+              "companyType": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
