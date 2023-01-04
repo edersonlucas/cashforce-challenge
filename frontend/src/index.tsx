@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import { AuthProvider } from '../src/contexts/AuthContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +14,21 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
+    <AuthProvider>
+    <ToastContainer
+      position="bottom-center"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
       <App />
+    </AuthProvider>
     </Router>
   </React.StrictMode>
 );
