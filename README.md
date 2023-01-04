@@ -6,11 +6,10 @@
   Este é um desafio técnico realizado para a Cashforce com o intuito de ocupar a vaga de desenvolvedor fullstack jr.
 </h4>
 
-
-
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
+
 - **Backend**
   - Express
   - SequelizeORM
@@ -49,9 +48,7 @@ git clone https://github.com/edersonlucas/cashforce-challenge
 cd cashforce-challenge
 ```
 
-**#Renomei o arquivo ".env.example" que está na pasta raiz do projeto para ".env"**
-
-
+**#Renomeie o arquivo ".env.example" que está na pasta raiz do projeto para ".env"**
 
 **#Agora que você renomeou arquivo de variaveis para ".env" rode o seguinte comando (Pode demorar alguns minutos ☕)**[](https://emojipedia.org/pt/café/)
 
