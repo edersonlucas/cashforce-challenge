@@ -11,4 +11,4 @@ export default interface IInvoice {
   emissionDate: string;
   value: string;
   orderStatusBuyer: string;
-};
+}

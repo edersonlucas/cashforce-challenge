@@ -1,20 +1,23 @@
 import React from "react";
-import IInvoice from '../interfaces/IInvoice';
-import { dateFormatter, priceFormatter } from '../helpers/formatter';
+import IInvoice from "../interfaces/IInvoice";
+import { dateFormatter, priceFormatter } from "../helpers/formatter";
 import { statusInvoice } from "../enums/statusInvoice.enum";
 
 interface TableInvoicesProps {
   invoices: IInvoice[];
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setProviderId: React.Dispatch<React.SetStateAction<number>>;
-};
+}
 
-export default function TableInvoices({ invoices, setProviderId, setIsOpen }: TableInvoicesProps) {
-
+export default function TableInvoices({
+  invoices,
+  setProviderId,
+  setIsOpen,
+}: TableInvoicesProps) {
   const handleClick = (id: number) => {
     setIsOpen(true);
-    setProviderId(id)
-  }
+    setProviderId(id);
+  };
 
   return (
     <div className="flex flex-col">
@@ -84,7 +87,11 @@ export default function TableInvoices({ invoices, setProviderId, setIsOpen }: Ta
                       {statusInvoice[Number(invoice.orderStatusBuyer)]}
                     </td>
                     <td>
-                      <button onClick={ () => handleClick(Number(invoice.provider.id))} type="button" className="p-4 m-2 border-2 rounded-lg">
+                      <button
+                        onClick={() => handleClick(Number(invoice.provider.id))}
+                        type="button"
+                        className="p-4 m-2 border-2 rounded-lg"
+                      >
                         Dados cedente
                       </button>
                     </td>

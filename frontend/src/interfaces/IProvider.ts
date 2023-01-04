@@ -14,4 +14,4 @@ export default interface IProvider {
   cnpj: {
     cnpj: string;
   };
-};
+}
