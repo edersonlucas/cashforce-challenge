@@ -9,8 +9,13 @@ interface RequestAuth extends Request {
 
 export default class AuthMiddleware {
   public static auth(req: RequestAuth, _res: Response, next: NextFunction) {
-    const token = req.headers.authorization;
+    let token = req.headers.authorization;
     if (!token) throw new ErrorGenerator(401, 'Token not found');
+
+    if (token.includes('Bearer ')) {
+      token = token.replace('Bearer ', '');
+    }
+
     try {
       const user = new Auth().Authorization(token);
       req.user = user;
