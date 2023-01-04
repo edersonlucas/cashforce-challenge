@@ -29,7 +29,7 @@ export default function Header() {
         className="fixed z-50 bg-white-900 w-full"
       >
         <div className="p-5 flex justify-between items-center w-full mx-auto text-green-500">
-          <Link to="/" className="flex items-center">
+          <Link onClick={() => setIsOpenMenu(false)} to="/" className="flex items-center">
             <img
               src={Logo}
               alt="Logo Cashforce"
