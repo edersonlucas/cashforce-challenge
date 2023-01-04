@@ -7,7 +7,7 @@ import providerRouter from './routes/ProviderRouter';
 import authRouter from './routes/AuthRouter';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const swaggerDocs = require('./swagger.json');
+const swaggerDocs = require('../swagger.json');
 
 const app = express();
 
