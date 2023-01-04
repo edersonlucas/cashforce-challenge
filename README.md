@@ -55,7 +55,7 @@ cd cashforce-challenge
 
 **#Agora que você renomeou arquivo de variaveis para ".env" rode o seguinte comando (Pode demorar alguns minutos ☕)**[](https://emojipedia.org/pt/café/)
 
-    docker compose up -d
+    docker compose up
 
 **#Você pode abrir o aplicativo e a documentação da API em:**
 
